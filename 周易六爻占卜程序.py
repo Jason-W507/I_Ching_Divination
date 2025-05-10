@@ -218,9 +218,9 @@ def perform_divination():
         print("【彖曰】：（无可用彖传）")
 
     if primary_hex_texts and 'da_xiang_ci' in primary_hex_texts and primary_hex_texts['da_xiang_ci']:
-        print(f"【大象曰】：{primary_hex_texts['da_xiang_ci']}")
+        print(f"【象曰】：{primary_hex_texts['da_xiang_ci']}")
     else:
-        print("【大象曰】：（无可用大象传）")
+        print("【象曰】：（无可用大象传）")
 
     print("\n卦象 (上爻为顶，初爻为底) 及爻辞与小象传:")
     for i in range(5, -1, -1): # 从上爻（第6爻，索引5）往下显示
@@ -237,9 +237,9 @@ def perform_divination():
         # 显示小象传
         if primary_hex_texts and 'xiao_xiang_ci' in primary_hex_texts and \
            len(primary_hex_texts['xiao_xiang_ci']) > i and primary_hex_texts['xiao_xiang_ci'][i]:
-            print(f"    【小象曰】：{primary_hex_texts['xiao_xiang_ci'][i]}")
+            print(f"    【象曰】：{primary_hex_texts['xiao_xiang_ci'][i]}")
         else:
-            print(f"    【小象曰】：（无可用小象传）")
+            print(f"    【象曰】：（无可用象传）")
 
     changing_lines_indices = [i for i, ld in enumerate(lines_details) if ld["is_changing"]]
 
@@ -254,16 +254,16 @@ def perform_divination():
             print(f"六爻皆变为九，参考【用九】：{primary_hex_texts['yong_jiu']}")
             if primary_hex_texts and 'xiao_xiang_ci' in primary_hex_texts and \
                len(primary_hex_texts['xiao_xiang_ci']) > 6 and primary_hex_texts['xiao_xiang_ci'][6]: # 用九的小象传通常在索引6
-                print(f"    【小象曰】：{primary_hex_texts['xiao_xiang_ci'][6]}")
+                print(f"    【象曰】：{primary_hex_texts['xiao_xiang_ci'][6]}")
             else:
-                print(f"    【小象曰】：（无可用小象传）")
+                print(f"    【象曰】：（无可用象传）")
         elif is_all_six and primary_hex_texts and 'yong_liu' in primary_hex_texts:
             print(f"六爻皆变为六，参考【用六】：{primary_hex_texts['yong_liu']}")
             if primary_hex_texts and 'xiao_xiang_ci' in primary_hex_texts and \
                len(primary_hex_texts['xiao_xiang_ci']) > 6 and primary_hex_texts['xiao_xiang_ci'][6]: # 用六的小象传通常在索引6
-                print(f"    【小象曰】：{primary_hex_texts['xiao_xiang_ci'][6]}")
+                print(f"    【象曰】：{primary_hex_texts['xiao_xiang_ci'][6]}")
             else:
-                print(f"    【小象曰】：（无可用小象传）")
+                print(f"    【象曰】：（无可用象传）")
         else:
             for i in changing_lines_indices:
                 line_num_display = i + 1
@@ -273,9 +273,9 @@ def perform_divination():
                     # 显示变爻对应的小象传
                     if primary_hex_texts and 'xiao_xiang_ci' in primary_hex_texts and \
                        len(primary_hex_texts['xiao_xiang_ci']) > i and primary_hex_texts['xiao_xiang_ci'][i]:
-                        print(f"        【小象曰】：{primary_hex_texts['xiao_xiang_ci'][i]}")
+                        print(f"        【象曰】：{primary_hex_texts['xiao_xiang_ci'][i]}")
                     else:
-                        print(f"        【小象曰】：（无可用小象传）")
+                        print(f"        【象曰】：（无可用象传）")
                 else:
                     print(f"    （无可用爻辞）")
 
@@ -303,9 +303,9 @@ def perform_divination():
             print("【彖曰】：（无可用彖传）")
 
         if secondary_hex_texts and 'da_xiang_ci' in secondary_hex_texts and secondary_hex_texts['da_xiang_ci']:
-            print(f"【大象曰】：{secondary_hex_texts['da_xiang_ci']}")
+            print(f"【象曰】：{secondary_hex_texts['da_xiang_ci']}")
         else:
-            print("【大象曰】：（无可用大象传）")
+            print("【象曰】：（无可用象传）")
 
         print("\n卦象 (上爻为顶，初爻为底):")
         for i in range(5, -1, -1):
