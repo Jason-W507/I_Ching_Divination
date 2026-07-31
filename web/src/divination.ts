@@ -87,13 +87,25 @@ export function lineName(value: LineValue) {
   return ({ 6: "老阴", 7: "少阳", 8: "少阴", 9: "老阳" } as const)[value];
 }
 
+function binaryKeyFromLines(lines: LineValue[], changing: boolean) {
+  return lines
+    .map((line) => {
+      if (changing) return line === 7 || line === 6 ? "1" : "0";
+      return line === 7 || line === 9 ? "1" : "0";
+    })
+    .reverse()
+    .join("");
+}
+
 export function resolveDivination(lines: LineValue[]): DivinationResult {
   if (lines.length !== 6 || lines.some((line) => ![6, 7, 8, 9].includes(line))) {
     throw new Error("卦象必须由六个有效爻值组成");
   }
 
-  const primaryKey = lines.map((line) => (line === 7 || line === 9 ? "1" : "0")).join("");
-  const secondaryKey = lines.map((line) => (line === 7 || line === 6 ? "1" : "0")).join("");
+  // JSON keys are conventional binary strings: the least-significant (rightmost)
+  // bit represents the lowest line, while `lines` is stored from 初爻 to 上爻.
+  const primaryKey = binaryKeyFromLines(lines, false);
+  const secondaryKey = binaryKeyFromLines(lines, true);
   const primary = hexagrams[primaryKey];
   const secondary = hexagrams[secondaryKey];
   if (!primary || !secondary) throw new Error("未能在卦爻辞数据中找到对应卦象");

@@ -1,2 +1,16 @@
 # SCM syntax highlighting & preventing 3-way merges
+.gitattributes text eol=lf
 pixi.lock merge=binary linguist-language=YAML linguist-generated=true
+
+web/*.ts text eol=lf
+web/scripts/*.mjs text eol=lf
+web/src/**/*.ts text eol=lf
+web/src/**/*.tsx text eol=lf
+web/src/**/*.css text eol=lf
+web/public/**/*.svg text eol=lf
+web/worker/*.js text eol=lf
+web/*.json text eol=lf
+web/src/**/*.json text eol=lf
+web/*.html text eol=lf
+web/*.md text eol=lf
+web/**/*.png binary
