@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import {
   CheckIcon,
   ChevronLeftIcon,
@@ -359,6 +359,16 @@ function HistoryScreen({ flow }: { flow: FlowControls }) {
 export default function Prototype() {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem("dayan:theme") === "dark" ? "dark" : "light"));
   const shared = useMemo(() => readSharedResult(), []);
+  const devicePreview = useMemo(() => (
+    import.meta.env.DEV && new URLSearchParams(window.location.search).get("devicePreview") === "1"
+  ), []);
+
+  useLayoutEffect(() => {
+    document.documentElement.dataset.dayanShell = devicePreview ? "device" : "web";
+    return () => {
+      delete document.documentElement.dataset.dayanShell;
+    };
+  }, [devicePreview]);
 
   useEffect(() => {
     localStorage.setItem("dayan:theme", theme);
@@ -383,7 +393,7 @@ export default function Prototype() {
 
   return (
     <ThemeContext.Provider value={themeValue}>
-      <div className="dayan-app" data-theme={theme}>
+      <div className="dayan-app" data-theme={theme} data-shell={devicePreview ? "device" : "web"}>
         <FlowStack initial={initial} />
       </div>
     </ThemeContext.Provider>
