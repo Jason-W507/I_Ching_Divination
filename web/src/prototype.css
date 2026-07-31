@@ -1018,6 +1018,400 @@
   filter: invert(1);
 }
 
+/* The phone frame is a local design-preview tool, not the production shell. */
+html[data-dayan-shell="web"],
+html[data-dayan-shell="web"] body,
+html[data-dayan-shell="web"] #root {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--paper, #f7f3ed);
+}
+
+html[data-dayan-shell="web"] body {
+  overflow: hidden;
+}
+
+html[data-dayan-shell="web"] .phone-stage {
+  display: block;
+  height: 100dvh;
+  padding: 0;
+}
+
+html[data-dayan-shell="web"] .device-menu-bar,
+html[data-dayan-shell="web"] .phone-bezel,
+html[data-dayan-shell="web"] .device-camera,
+html[data-dayan-shell="web"] .status-bar,
+html[data-dayan-shell="web"] .home-indicator-svg,
+html[data-dayan-shell="web"] .android-navigation-bar,
+html[data-dayan-shell="web"] .mobile-cursor,
+html[data-dayan-shell="web"] .keyboard-dock {
+  display: none !important;
+}
+
+html[data-dayan-shell="web"] .phone-scale-box,
+html[data-dayan-shell="web"] .phone-device,
+html[data-dayan-shell="web"] .device-screen {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+html[data-dayan-shell="web"] .phone-scale-box {
+  position: absolute;
+  inset: 0;
+}
+
+html[data-dayan-shell="web"] .phone-device {
+  inset: 0 !important;
+  transform: none !important;
+  user-select: auto;
+}
+
+html[data-dayan-shell="web"] .device-screen {
+  inset: 0 !important;
+  overflow: hidden;
+  border-radius: 0 !important;
+  box-shadow: none;
+  cursor: auto !important;
+  user-select: auto;
+}
+
+html[data-dayan-shell="web"] .device-screen,
+html[data-dayan-shell="web"] .device-screen *,
+html[data-dayan-shell="web"] .device-screen:active,
+html[data-dayan-shell="web"] .device-screen:active * {
+  cursor: auto !important;
+}
+
+html[data-dayan-shell="web"] .device-screen button,
+html[data-dayan-shell="web"] .device-screen a,
+html[data-dayan-shell="web"] .device-screen input,
+html[data-dayan-shell="web"] .device-screen textarea,
+html[data-dayan-shell="web"] .device-screen [role="button"] {
+  cursor: pointer !important;
+}
+
+html[data-dayan-shell="web"] .device-screen textarea {
+  cursor: text !important;
+}
+
+html[data-dayan-shell="web"] .mobile-app-viewport {
+  inset: 0 !important;
+}
+
+html[data-dayan-shell="web"] .mobile-scroll {
+  touch-action: pan-y;
+  user-select: text;
+}
+
+html[data-dayan-shell="web"] .dayan-app {
+  min-height: 100dvh;
+}
+
+@media (min-width: 760px) {
+  html[data-dayan-shell="web"] .dayan-screen {
+    width: min(100%, 1180px);
+    min-height: 100dvh;
+    margin: 0 auto;
+    padding: clamp(42px, 5vw, 72px) clamp(36px, 6vw, 84px) 52px;
+    overflow: visible;
+  }
+
+  html[data-dayan-shell="web"] .home-screen {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
+    grid-template-areas:
+      "header header"
+      "invitation visual"
+      "question visual"
+      "actions visual"
+      "note note";
+    grid-template-rows: auto auto auto auto auto;
+    column-gap: clamp(52px, 8vw, 124px);
+    align-content: center;
+  }
+
+  html[data-dayan-shell="web"] .home-header {
+    grid-area: header;
+    margin-bottom: clamp(50px, 7vh, 88px);
+  }
+
+  html[data-dayan-shell="web"] .brand-rule {
+    height: 116px;
+  }
+
+  html[data-dayan-shell="web"] .brand-mark h1 {
+    font-size: clamp(54px, 5vw, 72px);
+  }
+
+  html[data-dayan-shell="web"] .brand-mark p {
+    font-size: 17px;
+  }
+
+  html[data-dayan-shell="web"] .hexagram-preview {
+    position: relative;
+    top: auto;
+    right: auto;
+    grid-area: visual;
+    align-self: center;
+    justify-self: center;
+    width: 260px;
+    transform: translateY(-8px);
+  }
+
+  html[data-dayan-shell="web"] .preview-figure {
+    grid-template-columns: 180px 52px;
+    gap: 14px;
+  }
+
+  html[data-dayan-shell="web"] .preview-figure > span {
+    font-size: 190px;
+  }
+
+  html[data-dayan-shell="web"] .preview-figure ol {
+    height: 148px;
+    font-size: 11px;
+  }
+
+  html[data-dayan-shell="web"] .hexagram-preview .preview-caption {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+
+  html[data-dayan-shell="web"] .invitation {
+    grid-area: invitation;
+    margin: 0 0 26px;
+    font-size: clamp(22px, 2.2vw, 29px);
+  }
+
+  html[data-dayan-shell="web"] .question-section {
+    grid-area: question;
+  }
+
+  html[data-dayan-shell="web"] .question-section label {
+    margin-left: 0;
+    font-size: 20px;
+  }
+
+  html[data-dayan-shell="web"] .question-section textarea {
+    height: 158px;
+    padding: 22px 24px;
+    border-radius: 18px;
+    font-size: 15px;
+  }
+
+  html[data-dayan-shell="web"] .home-actions {
+    grid-area: actions;
+    grid-template-columns: minmax(220px, 1fr) minmax(170px, 0.7fr);
+    margin-top: 28px;
+  }
+
+  html[data-dayan-shell="web"] .home-actions .primary-button,
+  html[data-dayan-shell="web"] .home-actions .secondary-button {
+    min-height: 56px;
+    font-size: 17px;
+  }
+
+  html[data-dayan-shell="web"] .home-screen > .quiet-note {
+    grid-area: note;
+    margin-top: clamp(42px, 7vh, 80px);
+  }
+
+  html[data-dayan-shell="web"] .home-screen > .cosmic-rings {
+    top: 50%;
+    right: -70px;
+    width: 680px;
+    height: 680px;
+    transform: translateY(-48%);
+  }
+
+  html[data-dayan-shell="web"] .casting-screen {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(380px, 1fr);
+    grid-template-areas:
+      "brand brand"
+      "copy lines"
+      ". progress"
+      ". footnote";
+    grid-template-rows: auto 1fr auto auto;
+    column-gap: clamp(64px, 10vw, 150px);
+    align-content: center;
+  }
+
+  html[data-dayan-shell="web"] .casting-brand {
+    grid-area: brand;
+    margin-bottom: clamp(54px, 8vh, 100px);
+  }
+
+  html[data-dayan-shell="web"] .casting-copy {
+    grid-area: copy;
+    align-self: center;
+    margin-top: 0;
+  }
+
+  html[data-dayan-shell="web"] .casting-copy h2 {
+    max-width: 330px;
+    font-size: 34px;
+  }
+
+  html[data-dayan-shell="web"] .casting-copy p {
+    max-width: 360px;
+    font-size: 14px;
+  }
+
+  html[data-dayan-shell="web"] .casting-lines {
+    grid-area: lines;
+    align-self: center;
+    margin: 0;
+  }
+
+  html[data-dayan-shell="web"] .casting-lines li {
+    grid-template-columns: 52px 1fr 62px;
+    min-height: 54px;
+  }
+
+  html[data-dayan-shell="web"] .casting-lines .line-glyph {
+    font-size: 58px;
+    transform: scaleX(2.8);
+  }
+
+  html[data-dayan-shell="web"] .casting-progress {
+    grid-area: progress;
+    margin-top: 28px;
+  }
+
+  html[data-dayan-shell="web"] .casting-footnote {
+    grid-area: footnote;
+  }
+
+  html[data-dayan-shell="web"] .casting-rings {
+    top: 50%;
+    right: -80px;
+    transform: translateY(-42%);
+  }
+
+  html[data-dayan-shell="web"] .result-screen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(330px, 0.78fr);
+    grid-template-areas:
+      "topbar topbar"
+      "hero hero"
+      "focus lines"
+      "classics lines"
+      "actions lines"
+      "note note";
+    column-gap: clamp(44px, 6vw, 84px);
+    align-content: start;
+  }
+
+  html[data-dayan-shell="web"] .result-screen .screen-topbar {
+    grid-area: topbar;
+  }
+
+  html[data-dayan-shell="web"] .result-hero {
+    grid-area: hero;
+    min-height: 300px;
+    margin: 0 0 14px;
+    padding: 44px clamp(40px, 7vw, 100px) 34px;
+    border: 1px solid var(--line-soft);
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--paper-raised) 50%, transparent);
+  }
+
+  html[data-dayan-shell="web"] .result-pair {
+    width: min(100%, 560px);
+    margin: 0 auto;
+  }
+
+  html[data-dayan-shell="web"] .reading-focus {
+    grid-area: focus;
+  }
+
+  html[data-dayan-shell="web"] .line-detail {
+    grid-area: lines;
+  }
+
+  html[data-dayan-shell="web"] .classics-section {
+    grid-area: classics;
+  }
+
+  html[data-dayan-shell="web"] .result-actions {
+    grid-area: actions;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  html[data-dayan-shell="web"] .result-disclaimer {
+    grid-area: note;
+    margin-top: 38px;
+  }
+
+  html[data-dayan-shell="web"] .history-screen {
+    width: min(100%, 900px);
+  }
+
+  html[data-dayan-shell="web"] .history-heading {
+    padding: 28px 0 44px;
+  }
+
+  html[data-dayan-shell="web"] .history-heading h2 {
+    max-width: 620px;
+    font-size: 32px;
+  }
+
+  html[data-dayan-shell="web"] .history-list li {
+    padding: 3px 10px;
+  }
+
+  html[data-dayan-shell="web"] .history-main {
+    grid-template-columns: 76px 1fr;
+    padding: 22px 10px 22px 0;
+  }
+
+  html[data-dayan-shell="web"] .history-glyph {
+    font-size: 58px;
+  }
+
+  html[data-dayan-shell="web"] .empty-history {
+    padding-top: 120px;
+  }
+
+  html[data-dayan-shell="web"] .sheet-overlay {
+    background: rgba(16, 14, 12, 0.42);
+    backdrop-filter: blur(3px);
+  }
+
+  html[data-dayan-shell="web"] .bottom-sheet {
+    right: auto;
+    bottom: 24px !important;
+    left: 50%;
+    width: min(520px, calc(100% - 48px));
+    min-height: 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 22px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+    translate: -50% 0;
+  }
+
+  html[data-dayan-shell="web"] .sheet-content {
+    padding-bottom: 22px;
+  }
+}
+
+@media (min-width: 760px) and (max-height: 760px) {
+  html[data-dayan-shell="web"] .dayan-screen {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+
+  html[data-dayan-shell="web"] .home-header,
+  html[data-dayan-shell="web"] .casting-brand {
+    margin-bottom: 34px;
+  }
+
+  html[data-dayan-shell="web"] .home-screen > .quiet-note {
+    margin-top: 28px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .casting-progress span,
   .classics-section summary svg {
