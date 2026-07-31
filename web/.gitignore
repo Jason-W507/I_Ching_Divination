@@ -1,0 +1,8 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+preview*.log
+browser-stage-*.png
+implementation-*.png
+design-qa-comparison-*.png
