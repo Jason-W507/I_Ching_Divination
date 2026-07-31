@@ -59,6 +59,8 @@ npm run build
 
 生产站点托管于 Cloudflare Pages，项目名为 `dayan-iching`。构建参数如下：
 
+Cloudflare Pages 原生连接 GitHub：推送到 `main` 会自动更新生产站点，其他分支与 Pull Request 会生成独立的预览部署。
+
 | 配置 | 值 |
 | --- | --- |
 | 根目录 | `web` |
