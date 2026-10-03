@@ -4,12 +4,14 @@
 
 ### Product-specific decisions
 
-- Product name: `大衍`, subtitle `周易六爻`.
+- Product name: `大衍`; the multi-method design confirms the subtitle `周易占卜` (2026-10-03), to replace the current `周易六爻` when implemented.
 - Mobile-first modern-Eastern direction with geometric cosmological order, restrained vermilion accents, and generous whitespace.
 - Ship both themes. Light is the default; dark uses the selected deep-indigo direction.
 - Core flow: private question input, paced yarrow-stalk casting, layered result, browser-local history, and privacy-safe share links.
 - UI copy is Simplified Chinese while classical source text remains Traditional Chinese.
 - No accounts, backend, AI interpretation, or cloud persistence in version one.
+- Multi-method expansion (confirmed 2026-10-03): everyday casting and reflection, with approachable methods, clear instructions, and readable hexagram references. Keep yarrow casting and add three-coin, Meihua number, and Meihua time methods. The complete interaction plan is confirmed in `../docs/plans/multiple-divination-methods.md`. User selected displayed option 2 (`../docs/design/multiple-methods/option-2.png`): desktop method rail, mobile method select, ivory/indigo themes. Preserve desktop/mobile responsiveness and both themes.
+- Confirmed multi-method interactions: coins support six individual throws or one-click completion; number casting uses one positive number with the current time branch; time casting defaults to now with an editable timestamp. Use the documented Beijing-time conventions. First-time users choose a method; subsequent visits show the last completed method's inputs with a switch control. Show concise Meihua reading guidance with expandable details. Preserve full provenance locally and keep shared provenance opt-in.
 
 In ChatGPT Work Mode, run `sites-preview start "$PWD"`, open `http://terminal.local:4173/` in the cloud browser, and verify the rendered app and its primary interactions. Keep that preview open and tell the user to inspect it in the cloud browser; do not present the local URL as a user-facing chat link. In Codex Desktop, run the local server yourself, open the preview in the in-app browser, and provide the clickable local URL. Do not deploy to Sites unless the user explicitly asks to share, publish, or deploy. Do not give the user server-start instructions when you can run it.
 
